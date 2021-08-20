@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState  } from 'react';
+import { useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -27,7 +27,6 @@ import Box from '@material-ui/core/Box';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from '../../images/logo.svg';
 import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
 import HeightIcon from '@material-ui/icons/Height';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import api from '../../services/api';
@@ -505,9 +504,9 @@ function EditProntuario() {
           toast.dismiss(toastId);
           toast.success(`${response.data}`)
           setDisable(false)
-          // setTimeout(() => {
-          //   // history.push("/prontuarios")
-          // }, 1500)
+          setTimeout(() => {
+            history.push("/prontuarios")
+          }, 1500)
 
         }, 2500)
        

@@ -23,7 +23,7 @@ export default function CardProntList({user}) {
         <CardHeader
           style={{backgroundColor: '#efebe9'}}
           avatar={
-            <Avatar  style={{width: '100px', width: '75px', height: '75px'}}>
+            <Avatar  style={{width: '100px', height: '75px'}}>
                 <FaceIcon style={{background: 'white', color: '#0071BC' , fontSize: 100}}/>
             </Avatar>
           }

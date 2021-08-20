@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, PDFDownloadLink, PDFViewer  } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, PDFViewer  } from '@react-pdf/renderer';
 import IconButton from '@material-ui/core/IconButton';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { Link } from "react-router-dom";

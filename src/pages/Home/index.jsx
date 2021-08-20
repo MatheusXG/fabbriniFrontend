@@ -243,7 +243,7 @@ function Home() {
             
           <div className={classes.drawerHeader} />
           <div style={{width: '1520px', height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: '20px'}}>
-            <img src={dashboard}style={{width: '600px', marginTop: '125px'}}/>
+            <img src={dashboard}style={{width: '600px', marginTop: '125px'}} alt="Bem vindo"/>
             <h1 style={{fontSize: '50px', color: '#333333'}}>Seja bem vindo(a) ao Fabbrini</h1>
          </div>  
         </main>
