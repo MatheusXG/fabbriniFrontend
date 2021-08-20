@@ -505,9 +505,9 @@ function EditProntuario() {
           toast.dismiss(toastId);
           toast.success(`${response.data}`)
           setDisable(false)
-          setTimeout(() => {
-            // history.push("/prontuarios")
-          }, 1500)
+          // setTimeout(() => {
+          //   // history.push("/prontuarios")
+          // }, 1500)
 
         }, 2500)
        
