@@ -404,119 +404,119 @@ function EditProntuario() {
 
   const { id } = useParams();
   useEffect(() => {
-    async function getProntuario(){
+    // async function getProntuario(){
 
-      const response = await api.get(`/editar/prontuario/${id}`)
-      setData(response.data) 
-      setLoading(false)
-      console.log(response)
+    //   const response = await api.get(`/editar/prontuario/${id}`)
+    //   setData(response.data) 
+    //   setLoading(false)
+    //   console.log(response)
 
       
-      setGeneralDateTime(response.data.generalDateTime);
-      setGeneralGroup(response.data.generalGroup)                  
-      setGeneralValue(response.data.generalValue)                  
+    //   setGeneralDateTime(response.data.generalDateTime);
+    //   setGeneralGroup(response.data.generalGroup)                  
+    //   setGeneralValue(response.data.generalValue)                  
 
-      setAnthropDateTime(response.data.anthropDateTime)               
-      setAnthropBirthDate(response.data.anthropBirthDate)              
-      setAnthropSex(response.data.anthropSex)                    
-      setAnthropHeigth(response.data.anthropHeigth)                 
-      setAnthropWeigth(response.data.anthropWeigth)                 
-      setAnthropMemo(response.data.anthropMemo)                   
+    //   setAnthropDateTime(response.data.anthropDateTime)               
+    //   setAnthropBirthDate(response.data.anthropBirthDate)              
+    //   setAnthropSex(response.data.anthropSex)                    
+    //   setAnthropHeigth(response.data.anthropHeigth)                 
+    //   setAnthropWeigth(response.data.anthropWeigth)                 
+    //   setAnthropMemo(response.data.anthropMemo)                   
 
-      setConsultDateTime(response.data.consultDateTime)               
-      setConsultType(response.data.consultType)                   
-      setConsultProfessionalId(response.data.consultProfessionalId)         
-      setConsultSpeciality(response.data.consultSpeciality)             
-      setConsultLocal(response.data.consultLocal)                 
-      setConsultReason(response.data.consultReason)                 
-      setConsultHistory(response.data.consultHistory)                
-      setConsultExamination(response.data.consultExamination)            
-      setConsultHypothesis(response.data.consultHypothesis)             
-      setConsultRecomendations(response.data.consultRecomendations)         
-      setConsultPrescription(response.data.consultPrescription)           
-      setConsultExamsRequest(response.data.consultExamsRequest)           
-      setConsultMedicalCertificate(response.data.consultMedicalCertificate)     
+    //   setConsultDateTime(response.data.consultDateTime)               
+    //   setConsultType(response.data.consultType)                   
+    //   setConsultProfessionalId(response.data.consultProfessionalId)         
+    //   setConsultSpeciality(response.data.consultSpeciality)             
+    //   setConsultLocal(response.data.consultLocal)                 
+    //   setConsultReason(response.data.consultReason)                 
+    //   setConsultHistory(response.data.consultHistory)                
+    //   setConsultExamination(response.data.consultExamination)            
+    //   setConsultHypothesis(response.data.consultHypothesis)             
+    //   setConsultRecomendations(response.data.consultRecomendations)         
+    //   setConsultPrescription(response.data.consultPrescription)           
+    //   setConsultExamsRequest(response.data.consultExamsRequest)           
+    //   setConsultMedicalCertificate(response.data.consultMedicalCertificate)     
 
-      setExamsType(response.data.examsType)                     
-      setExamsLab(response.data.examsLab)                      
-      setExamsMethod(response.data.examsMethod)                   
-      setExamsValue(response.data.examsValue)                    
-      setExamsUnit(response.data.examsUnit)                     
-      setExamsReference(response.data.examsReference)                
-      setExamsReport(response.data.examsReport)
-    }
-    setTimeout(() => getProntuario(), 1000);
+    //   setExamsType(response.data.examsType)                     
+    //   setExamsLab(response.data.examsLab)                      
+    //   setExamsMethod(response.data.examsMethod)                   
+    //   setExamsValue(response.data.examsValue)                    
+    //   setExamsUnit(response.data.examsUnit)                     
+    //   setExamsReference(response.data.examsReference)                
+    //   setExamsReport(response.data.examsReport)
+    // }
+    // setTimeout(() => getProntuario(), 1000);
 
   },[id]);
 
-  async function handleSubmit(event){
-    event.preventDefault();
+  // async function handleSubmit(event){
+  //   event.preventDefault();
 
-    const data = {
+  //   const data = {
 
-      generalDateTime, 
-      generalGroup, 
-      generalValue,
-      generalImageURL,
+  //     generalDateTime, 
+  //     generalGroup, 
+  //     generalValue,
+  //     generalImageURL,
 
-      anthropDateTime,          
-      anthropBirthDate,        
-      anthropSex,                
-      anthropHeigth,
-      anthropWeigth,             
-      anthropMemo,
-      anthropImageURL,
+  //     anthropDateTime,          
+  //     anthropBirthDate,        
+  //     anthropSex,                
+  //     anthropHeigth,
+  //     anthropWeigth,             
+  //     anthropMemo,
+  //     anthropImageURL,
 
-      consultDateTime,                       
-      consultType,               
-      consultProfessionalId,     
-      consultSpeciality,         
-      consultLocal,              
-      consultReason,             
-      consultHistory,            
-      consultExamination,        
-      consultHypothesis,         
-      consultRecomendations,     
-      consultPrescription,       
-      consultExamsRequest,       
-      consultMedicalCertificate,
-      consultImageURL,
+  //     consultDateTime,                       
+  //     consultType,               
+  //     consultProfessionalId,     
+  //     consultSpeciality,         
+  //     consultLocal,              
+  //     consultReason,             
+  //     consultHistory,            
+  //     consultExamination,        
+  //     consultHypothesis,         
+  //     consultRecomendations,     
+  //     consultPrescription,       
+  //     consultExamsRequest,       
+  //     consultMedicalCertificate,
+  //     consultImageURL,
 
-      examsType,     
-      examsLab,      
-      examsMethod,   
-      examsValue,    
-      examsUnit,     
-      examsReference,
-      examsReport,
-      examsImageURL 
+  //     examsType,     
+  //     examsLab,      
+  //     examsMethod,   
+  //     examsValue,    
+  //     examsUnit,     
+  //     examsReference,
+  //     examsReport,
+  //     examsImageURL 
 
-    }
-    try {
-      const response = await api.put(`/editar/prontuario/${id}`, data)
-      console.log(response)
-      setLoadSave(true)
-      setDisable(true)
-      const toastId = toast.loading('Salvando...');
-      if (response) {
-        setTimeout(() =>{
-          setLoadSave(false)
-          toast.dismiss(toastId);
-          toast.success(`${response.data}`)
-          setDisable(false)
-          setTimeout(() => {
-            history.push("/prontuarios")
-          }, 1500)
+  //   }
+  //   try {
+  //     const response = await api.put(`/editar/prontuario/${id}`, data)
+  //     console.log(response)
+  //     setLoadSave(true)
+  //     setDisable(true)
+  //     const toastId = toast.loading('Salvando...');
+  //     if (response) {
+  //       setTimeout(() =>{
+  //         setLoadSave(false)
+  //         toast.dismiss(toastId);
+  //         toast.success(`${response.data}`)
+  //         setDisable(false)
+  //         setTimeout(() => {
+  //           history.push("/prontuarios")
+  //         }, 1500)
 
-        }, 2500)
+  //       }, 2500)
        
-      }
+  //     }
       
-    }
-    catch(err) {
-      toast.error("Erro ao salvar")
-    }
-  }
+  //   }
+  //   catch(err) {
+  //     toast.error("Erro ao salvar")
+  //   }
+  // }
 
   
    
@@ -663,7 +663,7 @@ function EditProntuario() {
               </div>
           
            {/* Primeiro Accordion */}
-            <form  onSubmit={handleSubmit}>
+            <form >
             <Box mb="35px">
           
                 <Accordion
@@ -1279,18 +1279,20 @@ function EditProntuario() {
                 </Accordion>
             </Box>
                 <AccordionActions>
-                  <Button
-                    id="buttonGlobalForm"
-                    size="large"
-                    variant="contained"
-                    // startIcon={<SaveIcon fontSize="30"/>}
-                    style={{
-                      borderRadius: '6px',
-                      fontSize: '20px',
-                    }}
-                  > 
-                  VOLTAR
-                </Button>
+                  <Link to="/prontuarios" style={{textDecoration: 'none'}}>
+                    <Button
+                      id="buttonGlobalForm"
+                      size="large"
+                      variant="contained"
+                      // startIcon={<SaveIcon fontSize="30"/>}
+                      style={{
+                        borderRadius: '6px',
+                        fontSize: '20px',
+                      }}
+                    > 
+                    VOLTAR
+                  </Button>
+                </Link>
                 <Button
                     id="buttonGlobalForm"
                     type="submit"
