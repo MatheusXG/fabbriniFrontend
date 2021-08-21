@@ -161,7 +161,7 @@ function SearchProntuario() {
 
   useEffect(() => {
     async function loadUsers() {
-      const response = await api.get('http://localhost:3333/prontuarios')
+      const response = await api.get('/prontuarios')
       setUsers(response.data);
     }
     loadUsers()
