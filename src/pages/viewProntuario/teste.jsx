@@ -27,11 +27,12 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from '../../images/logo.png';
 import { Link, useParams} from "react-router-dom";
 import '../../styles/Global.css'
-import { Page, Text, View, Document, StyleSheet, PDFViewer, Image } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, PDFViewer, Image, Svg } from '@react-pdf/renderer';
 import Button from '@material-ui/core/Button';
 
 //API
 import api from '../../services/api';
+import { getHours } from 'date-fns/esm';
 
 
 const themeGlobal = createTheme({
@@ -189,7 +190,29 @@ function Test() {
     getPront();
   }, [id]);
 
+  // const strDateHourGeneral = data?.generalDateTime;
+  // const dateGeneral = strDateHourGeneral?.substring(0, 10); 
+  // const hourGeneral = strDateHourGeneral?.substring(11, 19); 
+  // const dateG = dateGeneral?.split('-')
+  // const hourG = hourGeneral?.split(':')
 
+  // const strDateHourAnthrop = data.anthropDateTime;
+  // const dateAnthrop = strDateHourAnthrop?.substring(0, 10); 
+  // const hourAnthrop = strDateHourAnthrop?.substring(11, 19); 
+  // const dateA = dateAnthrop?.split('-')
+  // const hourA = hourAnthrop?.split(':')
+
+  // const strDateHourConsult = data.consultDateTime;
+  // const dateConsult = strDateHourConsult?.substring(0, 10); 
+  // const hourConsult = strDateHourConsult?.substring(11, 19); 
+  // const dateC = dateConsult?.split('-')
+  // const hourC = hourConsult?.split(':')
+
+  // const strDateHourBirth = data.anthropBirthDate;
+  // const dateBirth = strDateHourBirth?.substring(0, 10); 
+  // const hourBirth = strDateHourBirth?.substring(11, 19); 
+  // const dateB = dateBirth?.split('-')
+  // const hourB = hourBirth?.split(':')
 
 return (
     <ThemeProvider theme={themeGlobal}>
@@ -324,28 +347,115 @@ return (
                     <Text style={styles.textCampoName}>
                      Entrada de Saúde:
                     </Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Data e Hora da entrada:</Text> {data.generalDateTime}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Sexo:</Text> {data.generalGroup}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Observações:</Text> {data.generalValue}</Text>
-                    {/* <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Sexo:</Text> {data.generalGroup}</Text> */}
+                    {/* <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Data e Hora da entrada:</Text>{`${dateG[1]}/${dateG[1]}/${dateG[0]} - ${hourG[0]}:${hourG[1]}:${hourG[2]}`}</Text> */}
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Sexo:</Text> {data.generalGroup}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Observações:</Text> {data.generalValue}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Upload da entrada de sáude:</Text> <a href="#entrada-saude" style={{textDecoration: 'underline', color: '#0071BC'}}>visualizar</a></Text>
                     <Text style={styles.textCampoName}>
                      Dados Antropômetricos:
                     </Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Data e Hora da antropometria:</Text> {data.anthropDateTime}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Data de Aniversário:</Text> {data.anthropBirthDate}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Sexo de Nascimento:</Text> {data.anthropSex}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Altura:</Text> {data.anthropHeigth}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Peso:</Text> {data.anthropWeigth}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Cirucunferência abdominal:</Text> {data.anthropMemo}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Data e Hora da antropometria:</Text></Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Data de Aniversário:</Text> </Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Sexo de Nascimento:</Text> {data.anthropSex}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Altura:</Text> {data.anthropHeigth}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Peso:</Text> {data.anthropWeigth}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Cirucunferência Abdominal:</Text> {data.anthropMemo}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Upload da Antropometria:</Text> <a href="#anthrop" style={{textDecoration: 'underline', color: '#0071BC'}}>visualizar</a></Text>
                     <Text style={styles.textCampoName}>
                      Prescrições da Consulta:
                     </Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Data e Hora da prescrição:</Text> {data.consultDateTime}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Tipo da Consulta:</Text> {data.consultType}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Matrícula do médico:</Text> {data.consultProfessionalId}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Especialidade Médica:</Text> {data.consultSpeciality}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Local de Antendimento:</Text> {data.consultLocal}</Text>
-                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: 'red'}}>Motivo da Consulta:</Text> {data.consultReason}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Data e Hora da Consulta:</Text> </Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Tipo da Consulta:</Text> {data.consultType}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Matrícula do médico:</Text> {data.consultProfessionalId}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Especialidade Médica:</Text> {data.consultSpeciality}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Local de Antendimento:</Text> {data.consultLocal}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Motivo da Consulta:</Text> {data.consultReason}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Histórico da Consulta:</Text> {data.consultHistory}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Exames da Consulta:</Text> {data.consultExamination}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16,  marginTop: '100px'}}><Text style={{color: '#0B0101'}}>Hipótese da Consulta:</Text> {data.consultHypothesis}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Recomendações da Consulta:</Text> {data.consultRecomendations}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Prescrições da Consulta:</Text> {data.consultPrescription}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Solicitação de exames da Consulta:</Text> {data.consultExamsRequest}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Certificado Médico:</Text> {data.consultMedicalCertificate}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Upload da Consulta:</Text> <a href="#consulta" style={{textDecoration: 'underline', color: '#0071BC'}}>visualizar</a></Text>
+                    <Text style={styles.textCampoName}>
+                     Exames:
+                    </Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Tipo do Exame:</Text> {data.examsType}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Exames Laboratoriais:</Text> {data.examsLab}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Método do Exame:</Text> {data.examsMethod}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Valor do Exame:</Text> {data.examsValue}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Unidade de Exame:</Text> {data.examsUnit}</Text>
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Relatório do Exame:</Text> {data.examsReport}</Text>  
+                    <Text style={{marginHorizontal: 20, fontSize: 16}}><Text style={{color: '#0B0101'}}>Upload do Exame:</Text> <a href="#exames" style={{textDecoration: 'underline', color: '#0071BC'}}>visualizar</a></Text>                
+                  </View>
+                </Page>
+                <Page size="A4">
+                  <View style={styles.container}>
+                    <Text style={styles.textCampoName} id="entrada-saude">Upload da entrada de Saúde: </Text>
+                    {data.generalImageURL ? (
+                        <>
+                          <Text  style={{marginHorizontal: 20, fontSize: 16}}>
+                            <a href={data.generalImageURL} style={{textDecoration: 'underline'}}>
+                              visualizar imagem em tamanho maior
+                            </a>
+                          </Text>
+                          <Image src={data.generalImageURL} alt="Logo do Fabbrini" style={{marginTop: '10%', width: '100%'}} />
+                        </>
+                      ) : (
+                        <Text>Nenhum resultado encontrado</Text>
+                      )}   
+                  </View>
+                </Page>
+                <Page size="A4">
+                  <View style={styles.container}>
+                    <Text style={styles.textCampoName} id="anthrop">Upload da antropometria: </Text>
+                      {data.anthropImageURL ? (
+                        <>
+                          <Text  style={{marginHorizontal: 20, fontSize: 16}}>
+                            <a href={data.anthropImageURL} style={{textDecoration: 'underline'}}>
+                              visualizar imagem em tamanho maior
+                            </a>
+                          </Text>
+                          <Image src={data.anthropImageURL} alt="Logo do Fabbrini" style={{marginTop: '10%', width: '100%'}} />
+                        </>
+                      ) : (
+                        <Text>Nenhum resultado encontrado</Text>
+                      )}   
+                  </View>
+                </Page>
+              <Page size="A4">
+                  <View style={styles.container}>
+                    <Text style={styles.textCampoName} id="consulta">Upload da consulta: </Text>
+                      {data.consultImageURL ? (
+                        <>
+                          <Text  style={{marginHorizontal: 20, fontSize: 16}}>
+                            <a href={data.consultImageURL} style={{textDecoration: 'underline'}}>
+                              visualizar imagem em tamanho maior
+                            </a>
+                          </Text>
+                          <Image src={data.consultImageURL} alt="Logo do Fabbrini" style={{marginTop: '10%', width: '100%'}} />
+                        </>
+                      ) : (
+                        <Text>Nenhum resultado encontrado</Text>
+                      )}   
+                  </View>
+                </Page>
+                <Page size="A4">
+                  <View style={styles.container}>
+                    <Text style={styles.textCampoName} id="exames">Upload da antropometria: </Text>
+                      {data.examsImageURL ? (
+                        <>
+                          <Text  style={{marginHorizontal: 20, fontSize: 16}}>
+                            <a href={data.examsImageURL} style={{textDecoration: 'underline'}}>
+                              visualizar imagem em tamanho maior
+                            </a>
+                          </Text>
+                          <Image src={data.examsImageURL} alt="Logo do Fabbrini" style={{marginTop: '10%', width: '100%'}} />
+                        </>
+                      ) : (
+                        <Text>Nenhum resultado encontrado</Text>
+                      )}   
                   </View>
                 </Page>
               </Document>

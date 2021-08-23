@@ -13,17 +13,13 @@ import { Link } from "react-router-dom";
 import FaceIcon from '@material-ui/icons/Face';
 
 export default function CardProntList({user}) {
-
-  const name = user.name
-  console.log(name)
-
-  
+ 
   return (
-    <Card sx={{ maxWidth: 345 }} style={{width: '425px', height: '255px', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', borderRadius: '10px'}} key={user._id}>
+    <Card sx={{ maxWidth: 345 }} style={{width: '450px', height: '275px', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', borderRadius: '10px'}} key={user._id}>
         <CardHeader
           style={{backgroundColor: '#efebe9'}}
           avatar={
-            <Avatar  style={{width: '100px', height: '75px'}}>
+            <Avatar  style={{width: '95px', height: '95px'}}>
                 <FaceIcon style={{background: 'white', color: '#0071BC' , fontSize: 100}}/>
             </Avatar>
           }
@@ -34,7 +30,7 @@ export default function CardProntList({user}) {
         <Typography variant="body1">Email: {user.email}</Typography>
         <Typography variant="body1">CPF: {user.cpf}</Typography>
       </CardContent>
-      <CardActions style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center', backgroundColor: '#0071BC', boxShadow: 'rgba(0, 0, 1, 1) 0px 5px 15px'}}>
+      <CardActions style={{display: 'flex', justifyContent: 'flex-end', backgroundColor: '#0071BC', boxShadow: 'rgba(0, 0, 1, 1) 0px 5px 15px'}}>
         <Link to={`/editar/prontuario/${user._id}`}>
           <Tooltip title="Editar Prontuário" aria-label="add">
             <IconButton aria-label="Edit" style={{}}>

@@ -152,7 +152,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function SearchProntuario() {
+function SearchUser() {
   const classes = useStyles();
 
   const theme = useTheme();
@@ -183,27 +183,6 @@ function SearchProntuario() {
         })
   }, []);
 
-  function handleSearch() {
-    return (
-      <h1>teste</h1>
-    )
-  }
-
-  // const filteruser = useMemo(() => {
-  //   return users.
-  //   filter(user => {user.includes(search.toLocaleLowerCase())})
-  // }, [search]);
-
-  // useEffect(() => {
-  //   setFilterUser(
-
-  //     users.filter( user => {
-  //       console.log(users.name)
-  //       return user.name.toLowerCase().includes(search.toLowerCase())
-  //     })
-  //   )
-  // }, [search, filterUser])
-  
   
   return (
     <ThemeProvider theme={themeGlobal}>
@@ -316,10 +295,10 @@ function SearchProntuario() {
           <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between',  width: '100%'}}>
             <Typography variant="h3" style={{margin: '35px'}}>Prontuários</Typography>
             {/* <input onChange={(e) => setSearch(e.target.value)} type="search" /> */}
-            <TextField value={search} onChange={(e) => setSearch(e.target.value)} type="text" InputProps={{endAdornment: (<Link to={`/prontuarios/${search}`}><IconButton style={{backgroundColor: '#6AC4EB', borderRadius: '50px', width: '100%', height: '45px'}}><SearchIcon style={{margin: '10px', color: '#FFFFFF'}}/></IconButton></Link>)}} variant="outlined" placeholder="Search…" style={{ border: 'none', width: '30%',  backgroundColor: '#FFFFFF', borderRadius: '5px', margin: '45px', marginRight: '55px', boxShadow: 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px'}}/>
             
           </div>
-          <Grid container spacing={10} style={{display: 'flex' ,margin: '0 auto', width: '100%', justifyContent: 'flex-start' , alignItems: 'center', gap: '30px'}}>
+
+          <Grid container spacing={10} style={{display: 'flex' ,margin: '0 auto', width: '100%', justifyContent: 'center' , alignItems: 'center', gap: '30px'}}>
             {/* {users.map(user => (
               <Grid item xs={4} style={{display: 'flex', width: '100%'}}>
                 <CardProntList user={user} />
@@ -341,4 +320,4 @@ function SearchProntuario() {
     </ThemeProvider>
   );
 }
-export default SearchProntuario;
+export default SearchUser;

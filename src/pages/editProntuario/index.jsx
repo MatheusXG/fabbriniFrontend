@@ -492,6 +492,7 @@ function EditProntuario() {
       examsImageURL 
 
     }
+    
     try {
       const response = await api.put(`/editar/prontuario/${id}`, data)
       console.log(response)
@@ -504,11 +505,8 @@ function EditProntuario() {
           toast.dismiss(toastId);
           toast.success(`${response.data}`)
           setDisable(false)
-          setTimeout(() => {
-            history.push("/prontuarios")
-          }, 1500)
-
-        }, 2500)
+          // 
+        }, 2000)
        
       }
       
@@ -697,6 +695,8 @@ function EditProntuario() {
                               label="Data de hoje"
                               inputVariant="outlined"
                               margin="normal"
+                              maxDateDate={ new Date("2100-01-01")}
+                              minDateDate={ new Date("1950-01-01")}		
                               id="generalDateTime"
                               name="generalDateTime"
                               value={generalDateTime}
